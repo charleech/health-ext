@@ -5,21 +5,21 @@ import java.lang.management.MemoryMXBean;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
-import org.eclipse.microprofile.health.Health;
 import org.eclipse.microprofile.health.HealthCheck;
 import org.eclipse.microprofile.health.HealthCheckResponse;
 import org.eclipse.microprofile.health.HealthCheckResponseBuilder;
+import org.eclipse.microprofile.health.Liveness;
 
 /**
  * Checking heap memory usage against available heap memory
  * @author Phillip Kruger (phillip.kruger@phillip-kruger.com)
  */
-@Health
+@Liveness
 @ApplicationScoped
 public class HeapMemoryHealthCheck implements HealthCheck {
 
     @Inject @ConfigProperty(name = "health.jvm.heapmemory.maxpercentage", defaultValue = "0.9")
-    private double maxPercentage;
+    double maxPercentage;
     
     @Override
     public HealthCheckResponse call() {

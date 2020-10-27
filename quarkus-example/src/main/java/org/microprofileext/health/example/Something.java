@@ -1,10 +1,15 @@
 package org.microprofileext.health.example;
 
+
 import java.util.Date;
 import java.util.UUID;
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
+/**
+ * Something POJO
+ * @author Phillip Kruger (phillip.kruger@phillip-kruger.com)
+ */
 @Schema(name="Something", description="POJO that represents something.")
 public class Something {
     
